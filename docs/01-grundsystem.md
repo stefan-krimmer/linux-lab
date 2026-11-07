@@ -525,12 +525,14 @@ ping -c 3 deb.debian.org
 
 ## 21. Nächste Schritte
 
-- [ ] Paketquellen um Security-Updates ergänzen, System aktualisieren
-- [ ] SSH-Server, Zugriff per PuTTY, später Schlüssel statt Passwort
-- [ ] Firewall mit nftables
-- [ ] Konsolenauflösung dauerhaft über GRUB (`video=…`)
-- [ ] git-Repository anlegen, diese Doku einchecken
+- [x] Paketquellen um Security-Updates ergänzen, System aktualisieren → `02-basis-administration.md`
+- [x] SSH-Server, Zugriff per PuTTY, Schlüssel statt Passwort → `02-basis-administration.md`
+- [x] Firewall mit nftables → `02-basis-administration.md`
+- [x] ~~Konsolenauflösung dauerhaft über GRUB~~ – nicht nötig
+- [x] git-Repository anlegen, diese Doku einchecken → `03-git-github.md`
 - [ ] Apache, PHP, MariaDB
 - [ ] Windows Server als zweite VM, SMB in beide Richtungen, später AD
 - [ ] Docker (Oracle Database Free als Container)
 - [ ] Mini-Laborprozess: Order Entry → XML-Server → Gerätesimulator → Validierung → Befund-PDF per SMB → Schnittstelle zum „KIS“
+
+Aktueller Gesamtplan: `00-fahrplan.md`

@@ -103,12 +103,24 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 - [ ] Order Entry (Webformular, Auftragsnummer, Barcode)
 - [ ] XML-Server als systemd-Dienst (Empfang, Prüfung, Speicherung)
 - [ ] Probeneingang, Arbeitslisten pro Gerät
-- [ ] Gerätesimulator (ASTM oder HL7), inkl. Fehler- und Extremwerte
+- [ ] Gerätesimulator (ASTM oder HL7), inkl. Fehler- und Extremwerte – Übertragungsweg austauschbar halten (TCP oder seriell), damit er später auf einen Raspberry Pi umziehen kann
 - [ ] Resultatbearbeitung: Flags (H/L), Deltacheck, Plausibilitätsregeln
 - [ ] Technische und medizinische Validierung
 - [ ] Befund-PDF, Ablage per SMB auf Windows Server
 - [ ] Resultat per HL7 an ein simuliertes „KIS“
-- [ ] Synthetische Testdaten (z. B. Synthea)
+
+**Spital-Simulator (erfundene Patienten im Echtbetrieb)**
+- [ ] Patientenpool mit synthetischen Stammdaten (Synthea)
+- [ ] Zufällige Ankünfte (Poisson-Prozess) mit Tagesprofil: Spitze am Vormittag, ruhige Nacht, Abendspitze auf dem Notfall
+- [ ] Stationen mit eigenem Auftragsprofil:
+  - Notfall: STAT-Aufträge (Blutbild, CRP, Elektrolyte, Laktat), kurze Ziel-TAT
+  - Ambulant: Routine-Panels, vor allem vormittags
+  - Bettenstation: Morgenrunde (viele Aufträge gleichzeitig), Verlaufskontrollen
+  - optional IPS: häufige Blutgase, Wiederholungen (Deltacheck)
+- [ ] Ablauf wie in echt: HL7 ADT Aufnahme (A01/A04) → Auftrag → Entlassung (A03)
+- [ ] Krankheitsbilder statt reinem Zufall (z. B. Infekt, Dehydratation), damit Resultate zum Patienten passen
+- [ ] Simulator als systemd-Dienst (z. B. Python mit SimPy), Zeitraffer-Modus für Demos (1 h = 1 min)
+- [ ] Jedes Ereignis ins Ereignis-Log (Grundlage für Phase 7)
 
 **Doku:** `docs/07-mini-lis.md` plus Architektur- und Datenflussdiagramm
 
@@ -120,7 +132,7 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 - [ ] Kleiner Server, der Ereignisse per WebSocket an den Browser liefert
 - [ ] Live-Flow-Grafik: Aufträge wandern durch die Stationen, Staus werden rot
 - [ ] Klick auf Auftrag zeigt den vollständigen Weg (Rückverfolgung)
-- [ ] Turnaround Time (TAT) live berechnen
+- [ ] Turnaround Time (TAT) live berechnen, getrennt nach Station (Notfall vs. Routine)
 - [ ] Alarme mit Schwellenwerten (Warteschlange, Inaktivität)
 - [ ] Prometheus und Grafana für technische Kennzahlen
 - [ ] Doku: `docs/08-monitoring.md`
@@ -137,13 +149,24 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 
 ---
 
-## Phase 9 – Eigener Server & Automatisierung
+## Phase 9 – Eigener Server, echte Geräte & Automatisierung
 
+**Server**
 - [ ] Hardware: Minisforum UM790 Pro (64 GB, 1 TB) + Powerline
 - [ ] Proxmox VE installieren
 - [ ] debian-lab von VMware nach Proxmox migrieren (OVF, UEFI, Netzwerkname `ens33` → `ens18`)
 - [ ] VM-Vorlagen (Templates)
-- [ ] Ansible: ganzes Lab per Befehl neu aufbauen
+
+**Echte Geräte (Raspberry Pi)**
+- [ ] Gerätesimulator auf einen Pi umziehen, ASTM über echte serielle Leitung (USB-Seriell-Adapter, Nullmodem): Baudrate, ENQ/ACK, Prüfsummen
+- [ ] Zweiter Pi als Netzwerkgerät: HL7 über TCP (MLLP), POCT-ähnlich
+- [ ] Optional: Station Probeneingang mit USB-Barcodescanner (und Etikettendrucker)
+- [ ] Optional: Pi im Kiosk-Modus als Wandbildschirm für die Live-Flow-Grafik
+- [ ] Eigenes VLAN „Geräte“ (Managed Switch), Zugriffe über die Firewall geregelt
+- [ ] Pis per LAN statt WLAN anbinden
+
+**Automatisierung**
+- [ ] Ansible: ganzes Lab per Befehl neu aufbauen – VMs (x86) und Pis (ARM)
 - [ ] Doku: `docs/10-proxmox-ansible.md`
 
 ---

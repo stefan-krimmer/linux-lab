@@ -537,5 +537,7 @@ Es gibt einen **System-Bus** (systemweite Dienste) und einen **Session-Bus** (pr
 ## 14. Nächste Schritte
 
 - [ ] RAM auf dem Windows-Host freiräumen (Autostart-Programme)
-- [ ] Phase 2: git installieren, GitHub-Repo, README, `docs/00–02` einchecken
+- [x] Phase 2: git installieren, GitHub-Repo, README, `docs/00–02` einchecken → `03-git-github.md`
 - [ ] Phase 3: Apache, PHP, MariaDB – dabei Firewall um Port 80/443 erweitern
+
+Aktueller Gesamtplan: `00-fahrplan.md`
