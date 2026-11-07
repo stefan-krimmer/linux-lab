@@ -1,0 +1,22 @@
+# Geheimnisse – niemals ins Repo
+*.env
+.env*
+*.key
+*.pem
+*.ppk
+secrets/
+*passw*
+
+# Echte Konfigurationen mit Zugangsdaten (nur *.example einchecken)
+*.local.conf
+
+# Datenbank-Dumps und Backups
+*.sql.gz
+*.dump
+backup/
+
+# Logs und temporäre Dateien
+*.log
+*.tmp
+*.swp
+*~
