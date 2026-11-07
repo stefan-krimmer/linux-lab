@@ -36,7 +36,7 @@ Jeder Baustein meldet Ereignisse (Auftragsnr., Zeitstempel, Station, Status)
 |---|---|---|
 | 0 | Grundsystem von Hand (debootstrap, chroot, LVM, GRUB) | ✅ |
 | 1 | Basis-Administration (Updates, SSH, Firewall, Zeit, Logs) | ✅ |
-| 2 | Versionierung und Doku (git, GitHub) | 🔄 |
+| 2 | Versionierung und Doku (git, GitHub) | ✅ |
 | 3 | Web- und Datenbank-Stack (Apache, PHP, MariaDB) | ⏳ |
 | 4 | Windows Server, SMB, Active Directory | ⏳ |
 | 5 | Container (Docker, Oracle Database Free) | ⏳ |
@@ -56,9 +56,14 @@ Jeder Schritt wird dokumentiert – mit Erklärung des Werkzeugs, Befehlen, erwa
 | [`00-fahrplan.md`](docs/00-fahrplan.md) | Gesamtplan und Snapshots |
 | [`01-grundsystem.md`](docs/01-grundsystem.md) | Debian 13 von Hand aufsetzen (ohne Installer) |
 | [`02-basis-administration.md`](docs/02-basis-administration.md) | Updates, SSH mit Schlüssel, nftables, Zeitsynchronisation, journalctl |
+| [`03-git-github.md`](docs/03-git-github.md) | git, GitHub per SSH, .gitignore, Lizenz, täglicher Ablauf |
 
 ## Grundsätze
 
 - **Verstehen vor Automatisieren:** erst von Hand, dann dokumentieren, dann automatisieren.
 - **Keine Geheimnisse im Repo:** Zugangsdaten nur lokal, im Repo höchstens als `*.example`-Vorlage (siehe `.gitignore`).
 - **Nur erfundene Daten.**
+
+## Lizenz
+
+[MIT](LICENSE)

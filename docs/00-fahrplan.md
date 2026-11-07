@@ -9,7 +9,7 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 ## Leitlinien
 
 - **Verstehen vor Automatisieren:** erst von Hand, dann dokumentieren, dann automatisieren.
-- **Jeder Schritt wird dokumentiert:** `docs/NN-thema.md` mit Werkzeug-Erklärung, Befehlen, erwarteter Ausgabe und Stolpersteinen.
+- **Jeder Schritt wird dokumentiert:** `docs/NN-thema.md` (Doku-Nummer ≠ Phasen-Nummer) mit Werkzeug-Erklärung, Befehlen, erwarteter Ausgabe und Stolpersteinen.
 - **Snapshot vor jedem grösseren Schritt:** Benennung `NN-beschreibung`.
 - **Ereignis-Logging von Anfang an:** Jeder LIS-Baustein meldet Auftragsnummer, Zeitstempel, Station und Status.
 - **Keine Geheimnisse und keine Arbeitgeber-Interna im Repo.**
@@ -42,26 +42,30 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 
 ---
 
-## Phase 2 – Versionierung & Doku
+## Phase 2 – Versionierung & Doku ✅
 
-- [ ] git installieren und konfigurieren
-- [ ] GitHub-Repo anlegen (öffentlich), `.gitignore`, Lizenz
-- [ ] README: Ziel, Architekturdiagramm, Stand, Hinweis „nur Demo/erfundene Daten“
-- [ ] `docs/` mit 00 bis 02 einchecken
-- [ ] Repo auf GitHub-Profil anpinnen, auf LinkedIn unter „Im Fokus“ verlinken
+- [x] git installieren und konfigurieren (noreply-Adresse, `main`)
+- [x] GitHub-Repo `stefan-krimmer/linux-lab` (öffentlich), `.gitignore`, MIT-Lizenz
+- [x] README: Ziel, Architekturdiagramm, Stand, Hinweis „nur Demo/erfundene Daten“
+- [x] `docs/` mit 00 bis 02 eingecheckt
+- [x] Eigener SSH-Schlüssel der VM für GitHub
+- [x] Repo auf GitHub-Profil angepinnt
+- [ ] Auf LinkedIn unter „Im Fokus“ verlinken – erst wenn der Web-/DB-Stack läuft
+- [x] Doku: `docs/03-git-github.md`
 
 ---
 
 ## Phase 3 – Web- und Datenbank-Stack
 
 - [ ] Apache installieren, eigener Virtual Host
+- [ ] Konfigurationen im Repo versionieren (ohne Passwörter, `*.example`)
 - [ ] Firewall um Port 80/443 erweitern
 - [ ] PHP (Version bewusst wählen und dokumentieren)
 - [ ] MariaDB: Installation, `mariadb-secure-installation`, Benutzer und Rechte
 - [ ] Eigenes LV für Datenbankdaten anlegen (Übung: LVM erweitern)
 - [ ] Backup und Restore der Datenbank üben (`mariadb-dump`)
 - [ ] TLS mit selbstsigniertem Zertifikat
-- [ ] Doku: `docs/03-web-db.md`
+- [ ] Doku: `docs/04-web-db.md`
 
 ---
 
@@ -74,7 +78,7 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 - [ ] Active Directory: Windows Server als Domänencontroller
 - [ ] Debian der Domäne beitreten lassen, Anmeldung mit AD-Benutzer
 - [ ] Freigabe-Rechte über AD-Gruppen
-- [ ] Doku: `docs/04-windows-smb-ad.md`
+- [ ] Doku: `docs/05-windows-smb-ad.md`
 
 ---
 
@@ -83,7 +87,7 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 - [ ] Docker installieren, Grundlagen (Image, Container, Volume, Netzwerk)
 - [ ] Docker Compose
 - [ ] Oracle Database Free als Container, Vergleich mit MariaDB
-- [ ] Doku: `docs/05-container.md`
+- [ ] Doku: `docs/06-container.md`
 
 ---
 
@@ -106,7 +110,7 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 - [ ] Resultat per HL7 an ein simuliertes „KIS“
 - [ ] Synthetische Testdaten (z. B. Synthea)
 
-**Doku:** `docs/06-mini-lis.md` plus Architektur- und Datenflussdiagramm
+**Doku:** `docs/07-mini-lis.md` plus Architektur- und Datenflussdiagramm
 
 ---
 
@@ -119,7 +123,7 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 - [ ] Turnaround Time (TAT) live berechnen
 - [ ] Alarme mit Schwellenwerten (Warteschlange, Inaktivität)
 - [ ] Prometheus und Grafana für technische Kennzahlen
-- [ ] Doku: `docs/07-monitoring.md`
+- [ ] Doku: `docs/08-monitoring.md`
 
 ---
 
@@ -129,7 +133,7 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 - [ ] Backup- und Restore-Übungen, Wiederherstellung dokumentieren
 - [ ] Ausfallszenarien: DB weg, Schnittstelle hängt, Gerät liefert Unsinn
 - [ ] Netzwerkzonen mit Firewall-VM (Labor, Geräte, KIS, Verwaltung)
-- [ ] Doku: `docs/08-betrieb.md`
+- [ ] Doku: `docs/09-betrieb.md`
 
 ---
 
@@ -140,7 +144,7 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 - [ ] debian-lab von VMware nach Proxmox migrieren (OVF, UEFI, Netzwerkname `ens33` → `ens18`)
 - [ ] VM-Vorlagen (Templates)
 - [ ] Ansible: ganzes Lab per Befehl neu aufbauen
-- [ ] Doku: `docs/09-proxmox-ansible.md`
+- [ ] Doku: `docs/10-proxmox-ansible.md`
 
 ---
 
@@ -155,3 +159,4 @@ Privates Lern- und Portfolio-Projekt: eine kleine, realitätsnahe Spital-/Labor-
 | `05-ssh-schluessel` | Schlüssel-Login, Passwort-/root-Login per SSH gesperrt |
 | `06-firewall` | nftables aktiv und beim Booten geladen |
 | `07-phase1-fertig` | + Zeitsynchronisation, Logs geprüft |
+| `08-git` | git eingerichtet, Repo mit GitHub synchron |
