@@ -1,0 +1,9 @@
+# PHP-Pakete dürfen von Sury kommen (Standardpriorität)
+Package: php*
+Pin: origin packages.sury.org
+Pin-Priority: 500
+
+# Alles andere von Sury: nur, wenn Debian es nicht hat
+Package: *
+Pin: origin packages.sury.org
+Pin-Priority: 100
