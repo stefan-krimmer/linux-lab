@@ -9,6 +9,7 @@ secrets/
 
 # Echte Konfigurationen mit Zugangsdaten (nur *.example einchecken)
 *.local.conf
+db.php
 
 # Datenbank-Dumps und Backups
 *.sql.gz

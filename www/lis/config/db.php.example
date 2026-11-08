@@ -1,0 +1,10 @@
+<?php
+// Vorlage für die Zugangsdaten der Datenbank.
+// Auf dem Server kopieren nach: /var/www/lis/config/db.php
+// Rechte dort: stefan:www-data, 640 (Ordner config: 750)
+// Die echte db.php kommt NIE ins Repo (.gitignore).
+return [
+    'dsn'      => 'mysql:unix_socket=/run/mysqld/mysqld.sock;dbname=lab_test;charset=utf8mb4',
+    'user'     => 'lis_web',
+    'password' => 'HIER_PASSWORT_EINTRAGEN',
+];
