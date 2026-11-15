@@ -2,3 +2,4 @@
 /dev/mapper/vg0-swap none swap sw 0 0
 UUID=965E-348D /boot/efi vfat umask=0077 0 2
 /dev/mapper/vg0-mariadb /var/lib/mysql ext4 defaults,noatime 0 2
+//192.168.38.10/befunde  /mnt/smb/winsrv/befunde  cifs  credentials=/root/.smb-befunde.cred,vers=3.1.1,uid=stefan,gid=stefan,file_mode=0640,dir_mode=0750,_netdev,nofail,x-systemd.automount  0  0
