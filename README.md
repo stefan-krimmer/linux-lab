@@ -28,7 +28,9 @@ Jeder Baustein meldet Ereignisse (Auftragsnr., Zeitstempel, Station, Status)
 | VM `debian-lab` | Debian 13 „trixie“, manuell per debootstrap installiert, nur Konsole |
 | Speicher | UEFI, GPT, LVM (`vg0`), ext4 |
 | Zugang | SSH nur mit Ed25519-Schlüssel, root-Login gesperrt |
-| Firewall | nftables, eingehend nur SSH und Ping |
+| Firewall | nftables, eingehend nur SSH, HTTP/HTTPS und Ping |
+| Web | Apache 2.4 (HTTPS, selbstsigniert), PHP 8.5 über PHP-FPM |
+| Datenbank | MariaDB 11.8 auf eigenem LV, Backup mit `mariadb-dump` |
 
 ## Stand
 
@@ -37,7 +39,7 @@ Jeder Baustein meldet Ereignisse (Auftragsnr., Zeitstempel, Station, Status)
 | 0 | Grundsystem von Hand (debootstrap, chroot, LVM, GRUB) | ✅ |
 | 1 | Basis-Administration (Updates, SSH, Firewall, Zeit, Logs) | ✅ |
 | 2 | Versionierung und Doku (git, GitHub) | ✅ |
-| 3 | Web- und Datenbank-Stack (Apache, PHP, MariaDB) | ⏳ |
+| 3 | Web- und Datenbank-Stack (Apache, PHP, MariaDB, Backup, TLS) | ✅ |
 | 4 | Windows Server, SMB, Active Directory | ⏳ |
 | 5 | Container (Docker, Oracle Database Free) | ⏳ |
 | 6 | Mini-LIS | ⏳ |
@@ -57,11 +59,12 @@ Jeder Schritt wird dokumentiert – mit Erklärung des Werkzeugs, Befehlen, erwa
 | [`01-grundsystem.md`](docs/01-grundsystem.md) | Debian 13 von Hand aufsetzen (ohne Installer) |
 | [`02-basis-administration.md`](docs/02-basis-administration.md) | Updates, SSH mit Schlüssel, nftables, Zeitsynchronisation, journalctl |
 | [`03-git-github.md`](docs/03-git-github.md) | git, GitHub per SSH, .gitignore, Lizenz, täglicher Ablauf |
+| [`04-web-db.md`](docs/04-web-db.md) | Apache, Virtual Host, PHP-FPM aus Fremdquelle mit Pinning, MariaDB auf eigenem LV, Backup/Restore, TLS |
 
 ## Grundsätze
 
 - **Verstehen vor Automatisieren:** erst von Hand, dann dokumentieren, dann automatisieren.
-- **Keine Geheimnisse im Repo:** Zugangsdaten nur lokal, im Repo höchstens als `*.example`-Vorlage (siehe `.gitignore`).
+- **Keine Geheimnisse im Repo:** Zugangsdaten und private Schlüssel nur lokal, im Repo höchstens als `*.example`-Vorlage (siehe `.gitignore`).
 - **Nur erfundene Daten.**
 
 ## Lizenz
