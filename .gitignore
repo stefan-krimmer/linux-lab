@@ -21,3 +21,5 @@ backup/
 *.tmp
 *.swp
 *~
+# private Schlüssel nie committen
+*.key
